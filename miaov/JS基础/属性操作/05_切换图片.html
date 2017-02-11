@@ -5,16 +5,16 @@
 	<title>切换图片</title>
 </head>
 <body>
-	<img id="img1" src="img/1.jpg" alt="">
+	<img id="img1" src="../img/1.jpg" alt="">
 	<script>
 		var oImg=document.getElementById("img1");
 		var flag=true;
 		oImg.onclick=function(){
 			if (flag) {
-				this.src="img/2.jpg";
+				this.src="../img/2.jpg";
 				flag=false;
 			}else{
-				this.src="img/1.jpg";
+				this.src="../img/1.jpg";
 				flag=true;
 			}
 		}

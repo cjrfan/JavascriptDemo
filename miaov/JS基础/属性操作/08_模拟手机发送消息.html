@@ -16,7 +16,7 @@
 			height: 594px;
 			margin: auto;
 			margin-top: 10px;
-			background: url('img/phone.png') no-repeat;
+			background: url('../img/phone.png') no-repeat;
 			position: relative;
 		}
 		#box{
@@ -119,7 +119,7 @@
 		<div id="box">
 			<div id="content"></div>
 			<div id="bottom">
-				<img id="img" src="img/06.gif">
+				<img id="img" src="../img/06.gif">
 				<input id="text" type="text">
 				<input id="btn" type="button" value="发送">
 			</div>
@@ -137,15 +137,15 @@
 
 		oImg.onclick=function(){
 			if (flag) {
-				oImg.src="img/13.gif";
+				oImg.src="../img/13.gif";
 				flag=false;
 			}else{
-				oImg.src="img/06.gif";
+				oImg.src="../img/06.gif";
 				flag=true;
 			}
 		}
 		oBtn.onclick=function(){
-			var imgSrc=flag?"img/06.gif":"img/13.gif";
+			var imgSrc=flag?"../img/06.gif":"../img/13.gif";
 			var imgClass=flag?"1":"2";
 			str='<div class="div'+imgClass+'"><img class="img'+imgClass+'" src="'+imgSrc+'"><div class="text'+imgClass+'">'+oText.value+'</div></div>';
 			content.innerHTML=str+content.innerHTML;
