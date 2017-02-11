@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>90_找出字符串中的数字</title>
+</head>
+<body>
+	<!-- js原本方法 -->
+	<!-- <script>
+		var str = "123 hsj hd25 =69hjd 80";
+		var tmp = "";
+		var arr = [];
+
+		for(var i = 0;i < str.length;i++){
+			if(str.charAt(i) >= "0" && str.charAt(i) <= "9"){
+				tmp += str.charAt(i);
+			}else{
+				if(tmp){
+				  arr.push(tmp);
+				  tmp = "";
+				}
+			}
+		}
+		if(tmp){
+		  arr.push(tmp);
+		  tmp = "";
+		}
+		alert(arr);
+	</script> -->
+
+	<!-- 正则方法 -->
+	<script>
+		var str = "123 hsj hd25 =69hjd 80";
+		alert(str.match(/\d+/g));//匹配找出所有的数字
+	</script>
+</body>
+</html>

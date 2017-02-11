@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: black;
+			color: white;
+			font-size: 50px;
+			min-width: 400px;
+		}
+		.container{
+			width: 800px;
+			margin: 0 auto;
+		}
+		#time{
+			width: 400px;
+			margin: 50px auto 0;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var oTime = document.getElementById("time");
+		var aImgs1 = oTime.getElementsByClassName("num");
+		
+		var oDate1 = document.getElementById("date");
+		var aImgs2 = oDate1.getElementsByClassName("num");
+		var aSign = document.getElementsByClassName("sign");
+		
+		function toTwo(n){
+			return n<10?"0"+n:""+n;
+		}
+		var week = ["星期一","星期二","星期三","星期四","星期五","星期六","星期天"];
+		function getTime(){
+			
+			var date1 = new Date();
+			var str = toTwo(date1.getHours())+toTwo(date1.getMinutes())+toTwo(date1.getSeconds());
+
+			for (var i = 0; i < aImgs1.length; i++) {
+				// aImgs1[i].src = "img/"+str[i]+".png";//有兼容性问题
+				aImgs1[i].src = "img/"+str.charAt(i)+".png";
+			}
+		}
+		function getDate(){
+			var date1 = new Date();
+			var str = date1.getFullYear()+toTwo(date1.getMonth()+1)+toTwo(date1.getDate())+toTwo(date1.getDay());
+			for (var i = 0; i < aImgs2.length; i++) {
+				aImgs2[i].src = "img/"+str.charAt(i)+".png";
+			}
+		}
+
+		var timer = setInterval(getTime,1000);
+		
+		
+		getTime();
+		getDate();
+	};
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id="time">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="sign" src="img/sign.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="sign" src="img/sign.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+		</div>
+		<div id="date">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img src="img/year.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img src="img/month.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img class="num" src="img/0.png" alt="">
+			<img src="img/seven.png" alt="">
+			<img src="img/week.png" alt="">
+			<img src="img/one.png" alt="">
+		</div>
+	</div>
+</body>
+</html>

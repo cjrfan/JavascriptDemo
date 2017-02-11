@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 600px;
+			height: 100px;
+			/* border: 1px solid black; */
+		}
+		#infos{
+			width: 1200px;
+			height: 100px;
+		}
+		#infos ul{
+			float: left;
+			position: relative;
+		}
+
+		#infos li{
+			width: 150px;
+			/* height: 100px; */
+			line-height: 100px;
+			/* border-radius: 5px; */
+			overflow: hidden;
+			float: left;
+			list-style: none;
+		}
+		#infos li img:hover{
+			position: absolute;
+			top: 2px;
+			z-index: 2;
+		}
+		#infos li img{
+			width: 150px;
+			height: 110px;
+			/* border-radius: 5px; */
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="infos">
+			<ul id="info1">
+				<li>
+					<img src="../img/1.jpg" alt="">
+				</li>
+				<li>
+					<img src="../img/2.jpg" alt="">
+				</li>
+				<li>
+					<img src="../img/3.jpg" alt="">
+				</li>
+				<li>
+					<img src="../img/4.jpg" alt="">
+				</li>
+			</ul>
+		
+		</div>
+	</div>
+
+	<a id="leftbtn" href="#">向左</a>
+	<a id="rightbtn" href="#">向右</a>
+
+	<script>
+		var oMain = document.getElementById("main");
+		var oInfos = document.getElementById("infos");
+		var oInfo1 = document.getElementById("info1");
+		
+		var leftbtn = document.getElementById("leftbtn");
+		var rightbtn = document.getElementById("rightbtn");
+
+		oInfo1.innerHTML += oInfo1.innerHTML;
+		oMain.style.overflow = "hidden";
+
+		var timer1 = null;
+		var timer2 = null;
+
+		function scroll(direction){
+			if (direction==undefined) {
+				direction=1;
+			}
+
+			if (direction==1) {
+				oMain.scrollLeft +=2; 
+
+				if (oMain.scrollLeft % 150==0) {
+					clearInterval(timer1);
+					timer1 = null;
+					timer2 = setTimeout(function(){
+						timer1 = setInterval('scroll(1)',10);
+					}, 1000);
+				}
+				if (oMain.scrollLeft == oInfo1.clientWidth/2) {
+					oMain.scrollLeft = 0;
+				}
+			}else{
+				oMain.scrollLeft -=2; 
+
+				if (oMain.scrollLeft % 150==0) {
+					clearInterval(timer1);
+					timer1 = null;
+					timer2 = setTimeout(function(){
+						timer1 = setInterval('scroll(0)',10);
+					}, 1000);
+				}
+				if (oMain.scrollLeft == 0) {
+					oMain.scrollLeft = oInfo1.clientWidth/2;
+				}
+			}
+			
+		}
+
+
+		timer1 = setInterval('scroll(1)',10);
+
+		leftbtn.onclick = function(){
+			clearInterval(timer1);
+			timer1=null;
+			clearTimeout(timer2);
+			timer2=null;
+			timer1=setInterval('scroll(1)',10);
+		}
+
+		rightbtn.onclick = function(){
+			clearInterval(timer1);
+			timer1=null;
+			clearTimeout(timer2);
+			timer2=null;
+			timer1=setInterval('scroll(0)',10);
+		}
+
+	</script>
+
+</body>
+</html>

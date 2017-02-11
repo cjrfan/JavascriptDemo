@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易日历</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-family: "Arial","SimHei";
+		}
+		ul,li{
+			list-style: none;
+		}
+		
+		.container{
+			width: 522px;
+			overflow: hidden;
+			margin: 50px auto 0;
+		}
+		.container h1{
+			width: 420px;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.calendar{
+			width: 490px;
+			margin: 0 auto;
+			background-color: #f1f1f1;
+			border: 1px solid #424242;
+			padding: 20px 10px 10px 20px;
+		}
+		.calendar ul{
+			overflow: hidden;
+		}
+		.calendar ul li{
+			float: left;
+			width: 60px;
+			height: 55px;
+			text-align: center;
+			background-color: #424242;
+			cursor: pointer;
+			color: white;
+			margin: 0 10px 10px 0;
+			border: 1px solid white;
+			box-sizing: border-box;
+		}
+		.calendar ul li h2{
+			font-size: 20px;
+			margin-top: 8px;
+		}
+		.calendar ul li p{
+			font-size: 14px;
+		}
+		.calendar .active{
+			background-color: white;
+			color: #666;
+			border: 1px solid #424242;
+		}
+		.calendar .active p{
+			font-weight: bold;
+		}
+
+		.text{
+			background-color: #fefefe;
+			padding: 10px 0 10px 10px;
+		}
+		.text h2{
+			font-size: 18px;
+		}
+		.text p{
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>2016年8月份日历</h1>
+	<div id="main" class="calendar">
+		<ul>
+			<li class="active"><h2>1</h2><p>建军节</p></li>
+			<li><h2>2</h2><p>三十</p></li>
+			<li><h2>3</h2><p>初一</p></li>
+			<li><h2>4</h2><p>初二</p></li>
+			<li><h2>5</h2><p>初三</p></li>
+			<li><h2>6</h2><p>初四</p></li>
+			<li><h2>7</h2><p>立秋</p></li>
+			<li><h2>8</h2><p>初六</p></li>
+			<li><h2>9</h2><p>七夕节</p></li>
+			<li><h2>10</h2><p>初八</p></li>
+			<li><h2>11</h2><p>初九</p></li>
+			<li><h2>12</h2><p>初十</p></li>
+			<li><h2>13</h2><p>十一</p></li>
+			<li><h2>14</h2><p>十二</p></li>
+			<li><h2>15</h2><p>十三</p></li>
+			<li><h2>16</h2><p>十四</p></li>
+			<li><h2>17</h2><p>中元节</p></li>
+			<li><h2>18</h2><p>十六</p></li>
+			<li><h2>19</h2><p>十七</p></li>
+			<li><h2>20</h2><p>十八</p></li>
+			<li><h2>21</h2><p>十九</p></li>
+			<li><h2>22</h2><p>二十</p></li>
+			<li><h2>23</h2><p>处暑</p></li>
+			<li><h2>24</h2><p>廿二</p></li>
+			<li><h2>25</h2><p>廿三</p></li>
+			<li><h2>26</h2><p>廿四</p></li>
+			<li><h2>27</h2><p>廿五</p></li>
+			<li><h2>28</h2><p>廿六</p></li>
+			<li><h2>29</h2><p>廿七</p></li>
+			<li><h2>30</h2><p>廿八</p></li>
+			<li><h2>31</h2><p>廿九</p></li>
+		</ul>
+
+		<div class="text">
+			<h2>1号活动</h2>
+        	<p>aaaaaaaaaaaaa</p>
+		</div>
+	</div>
+</div>
+	<script>
+	var arr=[
+		"aaaaaaaaaaaaa",
+		"bbbbbbbbbbbbb",
+		"ccccccccccccc",
+		"ddddddddddddd",
+		"eeeeeeeeeeeee",
+		"fffffffffffff",
+		"ggggggggggggg",
+		"hhhhhhhhhhhhh",
+		"iiiiiiiiiiiii",
+		"jjjjjjjjjjjjj",
+		"kkkkkkkkkkkkk",
+		"日历是一种日常使用的出版物",
+		"用于记载日期等相关信息",
+		"每页显示一日信息的叫日历",
+		"每页显示一个月信息的叫月历",
+		"每页显示全年信息的叫年历",
+		"有多种形式，如挂历、座台历",
+		"如今又有电子日历",
+		"作品也不可避免地成为各家抢夺对象",
+		"著名学者李银河女士在京召开新",
+		"日历是一种日常使用的出版物",
+		"用于记载日期等相关信息",
+		"每页显示一日信息的叫日历",
+		"每页显示一个月信息的叫月历",
+		"每页显示全年信息的叫年历",
+		"有多种形式，如挂历、座台历",
+		"如今又有电子日历",
+		"作品也不可避免地成为各家抢夺对象",
+		"著名学者李银河女士在京召开新",
+		"日历是一种日常使用的出版物",
+		"用于记载日期等相关信息"
+	];
+	var oMain=document.getElementById("main");
+	var aLi=oMain.getElementsByTagName("li");
+	var oTxt=oMain.getElementsByTagName("div")[0];
+	for (var i = 0; i < aLi.length; i++) {
+		aLi[i].index=i;
+		aLi[i].onmouseover=function(){
+			for (var j = 0; j < aLi.length; j++) {
+				aLi[j].className="";
+			}
+			this.className="active";
+			oTxt.innerHTML="<h2>"+(this.index+1)+"号活动</h2><p>"+arr[this.index]+"</p>";
+		}
+	}
+	</script>
+</body>
+</html>

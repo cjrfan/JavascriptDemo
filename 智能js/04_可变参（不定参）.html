@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1" style="width:200px;height:200px;background-color:red;"></div>
+	<script>
+	function sum(){
+		var result=0;
+		for (var i = 0; i < arguments.length; i++) {
+			result+=arguments[i];
+		}
+		return result;
+	}
+	console.log(sum(1,2,3,4,6,8,10,5,7,9));
+
+	function css(){
+		if (arguments.length==2) {
+			return arguments[0].style[arguments[1]];
+		}
+		if(arguments.length==3){
+			return arguments[0].style[arguments[1]]=arguments[2];
+		}
+	}
+
+	var oDiv=document.getElementById("div1");
+	console.log(css(oDiv,"width"));
+	console.log(css(oDiv,"height"));
+	console.log(css(oDiv,"background-color"));
+
+	css(oDiv,"background-color","blue");
+	css(oDiv,"margin-left","300px");
+
+	function css2(obj,name,value){
+		if (arguments.length==2) {
+			return obj.style[name];
+		}
+		if(arguments.length==3){
+			return obj.style[name]=value;
+		}
+	}
+	console.log(css2(oDiv,"width"));
+	console.log(css2(oDiv,"height"));
+	console.log(css2(oDiv,"background-color"));
+
+	css2(oDiv,"background-color","yellow");
+	css2(oDiv,"margin-top","100px");
+	</script>
+</body>
+</html>

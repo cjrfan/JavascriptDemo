@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标提示框</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 115px;
+			height: 30px;
+		}
+
+		#info{
+			width: 200px;
+			padding: 10px;
+			line-height: 24px;
+			background-color: yellow;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p><input id="inp" type="checkbox"><label for="inp">十天内免登录</label></p>
+		<label for="inp">
+			<div id="info">为了您的信息安全，请不要在网吧或公共电脑上使用此功能
+			</div>
+		</label>
+	</div>
+	<script>
+		var box=document.getElementById("box");
+		var info=document.getElementById("info");
+		box.onmouseover=function(){
+			info.style.display="block";
+		}
+		box.onmouseout=function(){
+			info.style.display="none";
+		}
+	</script>
+</body>
+</html>

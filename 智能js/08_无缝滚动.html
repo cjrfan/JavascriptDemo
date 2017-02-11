@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		#wrap{
+			width: 720px;
+			height: 120px;
+			margin: 100px auto 0;
+			position: relative;
+		}
+		#div1{
+			width: 720px;
+			height: 120px;
+			margin: 100px auto 0;
+			position: relative;
+			overflow: hidden;
+		}
+		#div1 ul{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#div1 li{
+			width: 240px;
+			float: left;
+			line-height: 0;
+		}
+		#div1 li img{
+			width: 240px;
+		}
+		#wrap a{
+			position: absolute;
+			width: 50px;
+			height: 120px;
+			line-height: 120px;
+			font-size: 50px;
+			font-weight: bold;
+			text-align: center;
+			top: 0;
+			text-decoration: none;
+			color: #ddd;
+			background-color: #f1f1f1;
+		}
+		#wrap a:hover{
+			background-color: #eee;
+			color: #333;
+		}
+		#left{
+			left: -50px;
+		}
+		#right{
+			right: -50px;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="div1">
+		<ul>
+			<li><img src="../img/1.jpg" alt=""></li>
+			<li><img src="../img/2.jpg" alt=""></li>
+			<li><img src="../img/3.jpg" alt=""></li>
+			<li><img src="../img/4.jpg" alt=""></li>
+			<li><img src="../img/5.jpg" alt=""></li>
+		</ul>	
+	</div>
+	<a id="left" href="#"><</a>
+	<a id="right" href="#">></a>
+</div>
+	<script>
+		var oDiv1 = document.getElementById("div1");
+		var oUl = oDiv1.getElementsByTagName("ul")[0];
+		var aLis = oDiv1.getElementsByTagName("li");
+
+		var oLeft = document.getElementById("left");
+		var oRight = document.getElementById("right");
+
+		var timer = null;
+		var iSpeed = 2;
+		oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;
+		oUl.style.width = aLis[0].offsetWidth*aLis.length+'px';
+
+		timer = setInterval(move,10);
+		function move(){
+			if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+				oUl.style.left = '0';
+			}
+			else if (oUl.offsetLeft>0) {
+				oUl.style.left = -oUl.offsetWidth/2 +'px';
+			}
+			oUl.style.left = oUl.offsetLeft+speed+'px';
+		}
+
+		oDiv1.onmouseover = function(){
+			clearInterval(timer);
+		}
+		oDiv1.onmouseout = function(){
+			timer = setInterval(move,10);
+		}
+		oLeft.onclick = function(){
+			speed = -2;
+		}
+		oRight.onclick = function(){
+			speed = 2;
+		}
+	</script>
+</body>
+</html>
