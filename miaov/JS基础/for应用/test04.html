@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js随机生成100个DIV每10个换行...</title>
+    <script>
+        window.onload = function(){
+            "use strict";
+            var oBtn = document.getElementById('btn');
+            var oBody = document.body;
+            var str = '';
+            var aDiv = document.getElementsByTagName('div');
+
+            oBtn.onclick = function(){
+                for (var i = 0; i<100; i++){
+                    str = '<div>'+ i + '</div>'
+                    oBody.innerHTML += str;
+                }
+                for (var i = 0; i<100; i+=10){
+                    for (var j = 0; j<10 ;j++){
+                        aDiv[i+j].style.left = 10 + j*60 + 'px';
+                        aDiv[i+j].style.top = 50 + i*6 + 'px';
+                    }
+                }
+            };
+        };
+    </script>
+    <style>
+        div{position: absolute;left: 0;top: 0;width: 50px;height: 50px;line-height: 50px;text-align: center;background: red;color: #fff;}
+    </style>
+</head>
+<body>
+    <input id="btn" type="button" value="点击生成100个Div" />
+</body>
+</html>

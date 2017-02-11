@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq list</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul">
+		<li>
+			<h2>我的好友1</h2>
+			<ul>
+				<li>好友1</li>
+				<li>好友2</li>
+				<li>好友3</li>
+			</ul>
+		</li>
+		<li>
+			<h2>我的好友2</h2>
+			<ul>
+				<li>好友1</li>
+				<li>好友2</li>
+				<li>好友3</li>
+			</ul>
+		</li>
+		<li>
+			<h2>我的好友3</h2>
+			<ul>
+				<li>好友1</li>
+				<li>好友2</li>
+				<li>好友3</li>
+			</ul>
+		</li>
+	</ul>
+
+	<script>
+		var oUl = document.getElementById("ul");
+		var aUl = oUl.getElementsByTagName("ul");
+		var aLi = null;
+		for (var i = 0; i < aUl.length; i++) {
+			aLi = aUl[i].getElementsByTagName("li");
+			for (var j = 0; j < aLi.length; j++) {
+				aLi[j].style.color = 'red';
+			}
+		}
+	</script>
+</body>
+</html>

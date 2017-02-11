@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.ul1{
+			width: 200px;
+			margin: 0 auto;
+		}
+		.li1{
+			width: 100px;
+			height: 30px;
+			position: relative;
+		}
+		.li1 a{
+			line-height: 30px;
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			color: white;
+			background-color: #398bfb;
+		}
+		.ul1 ul{
+			display: none;
+			width: 100px;
+			background-color: #eee;
+			position: absolute;
+			top: 30px;
+		}
+		li{
+			text-align: center;
+			line-height: 30px;
+		}
+		.ul1 ul li:hover{
+			background-color: yellow;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		1. display:none;
+		2. visibility:hidden;
+		3. width / height 设为0;
+		4. left / top;
+		5. margin负值;
+		6. 透明度opacity;
+		7. 拿一个白色div盖住
+	 -->
+	<ul class="ul1">
+		<li id="li1" class="li1">
+			<a id="a1" href="#">更多产品</a>
+			<ul id="ul2">
+				<li>音乐</li>
+				<li>图片</li>
+				<li>知道</li>
+				<li>文库</li>
+			</ul>
+		</li>
+	</ul>
+	<script>
+		window.onload = function(){
+			var oLi1 = document.getElementById("li1");
+			var oUl2 = document.getElementById("ul2");
+			var oA1 = document.getElementById("a1");
+
+			/*oLi1.onmouseover = show;
+			oLi1.onmouseout = hide;
+			function show(){
+				oA1.style.backgroundColor = "#d4d2c4";
+				oUl2.style.display = "block";
+			}
+			function hide(){
+				oA1.style.backgroundColor = "#398bfb";
+				oUl2.style.display = "none";
+			}*/
+
+			oLi1.onmouseover = function(){
+				oA1.style.backgroundColor = "#d4d2c4";
+				oUl2.style.display = "block";
+			};
+			oLi1.onmouseout = function(){
+				oA1.style.backgroundColor = "#398bfb";
+				oUl2.style.display = "none";
+			};
+		}
+	</script>
+</body>
+</html>

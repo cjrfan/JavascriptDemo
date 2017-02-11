@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>根据输入设置样式</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 5px solid black;
+		}
+	</style>
+</head>
+<body>
+	请输入属性名：<input id="text1" type="text"><br />
+	请输入属性值：<input id="text2" type="text">
+	<input id="btn" type="button" value="按钮">
+	<div id="box"></div>
+	<script>
+		// IE(styleFloat) 非IE(cssFloat)
+		var oName=document.getElementById("text1");
+		var oValue=document.getElementById("text2");
+		var oBtn=document.getElementById("btn");
+		var oBox=document.getElementById("box");
+		oBtn.onclick=function(){
+			oBox.style[oName.value]=oValue.value;
+			oValue.value="";
+			oName.value="";
+		}
+	</script>
+</body>
+</html>

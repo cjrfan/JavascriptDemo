@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#checkbox_group input{
+			display: block;
+		} 
+	</style>
+</head>
+<body>
+	<div id="btn_group">
+		<input id="input1" type="button" value="全选">
+		<input id="input2" type="button" value="反选">
+		<input id="input3" type="button" value="不选">
+		<input id="input4" type="checkbox">
+	</div>
+	<div id="checkbox_group">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+	</div>
+	<script>
+		var oInp1=document.getElementById("input1");
+		var oInp2=document.getElementById("input2");
+		var oInp3=document.getElementById("input3");
+		var oInp4=document.getElementById("input4");
+
+		var oDiv2=document.getElementById("checkbox_group");
+		var aInp=oDiv2.getElementsByTagName("input");
+		var count=0;
+		oInp1.onclick=function(){
+			for (var i = 0; i < aInp.length; i++) {
+				aInp[i].checked=true;
+			}
+			count=10;
+			oInp4.checked=true;
+			checkValue();
+		};
+		oInp2.onclick=function(){
+			for (var i = 0; i < aInp.length; i++) {
+				if (aInp[i].checked) {
+					aInp[i].checked=false;
+					count--;
+				}else {
+					aInp[i].checked=true;
+					count++;
+				}
+				// aInp[i].checked=!aInp[i].checked;
+				if(count==aInp.length){
+					oInp4.checked=true;
+				}else{
+					oInp4.checked=false;
+				}
+			}
+		};
+		oInp3.onclick=function(){
+			for (var i = 0; i < aInp.length; i++) {
+				aInp[i].checked=false;
+			}
+			count=0;
+			oInp4.checked=false;
+			checkValue();
+		};
+		oInp4.onclick=function(){
+			for (var i = 0; i < aInp.length; i++) {
+				if (oInp4.checked) {
+					aInp[i].checked=true;
+					count=aInp.length;
+				}else{
+					aInp[i].checked=false;
+					count=0;
+				}	
+			}	
+		};
+		function checkValue(){
+			for (var i = 0; i < aInp.length; i++) {
+				aInp[i].onclick=function(){
+					if (this.checked) {
+						count++;
+						console.log('count',count);
+					}else{
+						count--;
+						console.log('count',count);
+					}
+					if(count==aInp.length){
+						oInp4.checked=true;
+					}else{
+						oInp4.checked=false;
+					}
+				}
+			}
+		}
+		checkValue();
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+</head>
+<body>
+	<input id="text" type="text" value="">
+	<select id="select1">
+		<option value="北京">北京</option>
+		<option value="上海">上海</option>
+		<option value="广州">广州</option>
+		<option value="深圳">深圳</option>
+	</select>
+	<input id="btn" type="button" value="按钮">
+	<div id="div1"></div>
+	<!-- <img id="img1" src="img/1.jpg" alt=""> -->
+	<script>
+		var oText=document.getElementById("text");
+		var oSelect=document.getElementById("select1");
+		var oBtn=document.getElementById("btn");
+		var oDiv=document.getElementById("div1");
+		var oImg=document.getElementById("img1");
+		oBtn.onclick=function(){
+			// oText.value=oBtn.value;
+			// oText.value=oSelect.value;
+			// oBtn.value="button";
+			
+			/*var str="";
+			str+=oText.value;
+			str+="在";
+			str+=oSelect.value;
+			oDiv.innerHTML=str;*/
+
+			/*oDiv.innerHTML=oText.value+"在"+oSelect.value;
+			oText.value="";*/
+
+			/*oImg.src=oText.value;
+			oImg.src="img/"+oText.value+".jpg";
+			oText.value="";*/
+
+			oDiv.innerHTML=oText.value;
+			oDiv.innerHTML='<input type="'+oText.value+'" value="'+oText.value+'">';
+		}
+
+	</script>
+</body>
+</html>

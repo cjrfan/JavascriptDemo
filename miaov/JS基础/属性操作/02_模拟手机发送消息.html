@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟手机发送消息</title>
+	<style>
+		#div1{
+			width: 400px;
+			height: 400px;
+			overflow-y: auto;
+			padding: 10px;
+			margin-bottom: 10px;
+			background-color: #eee;
+			border: 1px solid black;
+		}
+		#text{
+			width: 280px;
+		}
+		#span1{
+			cursor: pointer;
+		}
+		.span2,.span3{
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 5px;
+		}
+		.span3{
+			float: right;
+		}
+		.div2,.div5{
+			display: inline-block;
+			max-width: 260px;
+			padding: 10px;
+			border-radius: 10px;
+		}
+		.div2{
+			background-color: yellow;
+		}
+		.div5{
+			background-color: #aaa;
+			float: right;
+			margin-right: 10px;
+		}
+		.div3{
+			width: 90%;
+			margin: 10px 0 0;
+		}
+		.div4{
+			float: right;
+			width: 90%;
+			margin: 10px 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<span id="span1">你说：</span>
+	<input id="text" type="text">
+	<input id="btn" type="button" value="发送">
+
+	<script>
+		var oDiv=document.getElementById("div1");
+		var oSpan=document.getElementById("span1");
+		var oText=document.getElementById("text");
+		var oBtn=document.getElementById("btn");
+		var flag=true;
+		var str="";
+		oSpan.onclick=function(){
+			if(flag) {
+				oSpan.innerHTML="我说：";
+				flag=false;
+			}else{
+				oSpan.innerHTML="你说：";
+				flag=true;
+			}
+		}
+		oBtn.onclick=function(){
+			if(oText.value==""){
+				alert("请随便说些什么");
+			}else{
+				var oSpanInnerHTML=flag?"你说：":"我说：";
+				if(oSpan.innerHTML=="你说："){
+					str='<div class="div3"><span class="span2">'+oSpan.innerHTML+'</span><div class="div2">'+oText.value+'</div></div>';
+					oDiv.innerHTML=str+oDiv.innerHTML;
+					oText.value="";
+				}else{
+					str='<div class="div4"><span class="span3">'+oSpan.innerHTML+'</span><div class="div5">'+oText.value+'</div></div>';
+					oDiv.innerHTML=str+oDiv.innerHTML;
+					oText.value="";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

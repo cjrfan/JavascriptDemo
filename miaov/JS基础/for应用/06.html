@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		ul{
+			width: 1000px;
+			margin-top: 150px;
+			/* overflow: hidden; */
+			display: inline-block;
+		}
+		ul li{
+			width: 200px;
+			height: 120px;
+			background-color: #f1f1f1;
+			margin-right: 50px;
+			margin-top: 20px;
+			float: left;
+			position: relative;
+		}
+		ul li div{
+			width: 180px;
+			height: 120px;
+			background-color: red;
+			display: none;
+			position: absolute;
+			right: -80px;
+			top: -60px;
+			z-index: 2;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+		<li>
+			<div></div>
+		</li>
+	</ul>
+
+	<script>
+	var aLi = document.getElementsByTagName("li");
+
+	for (var i = 0; i < aLi.length; i++) {
+		aLi[i].onmouseover = function(){
+			this.getElementsByTagName("div")[0].style.display = "block";
+		}
+		aLi[i].onmouseout = function(){
+			this.getElementsByTagName("div")[0].style.display = "none";
+		}
+	}
+	</script>
+</body>
+</html>

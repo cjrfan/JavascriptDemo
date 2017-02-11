@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03_改变字体大小背景宽高</title>
+	<style>
+		.toyellow{
+			width: 350px;
+			padding: 20px;
+			border: 10px solid black;
+			background-color: yellow;
+			color: skyblue;
+		}
+		.toblue{
+			width: 500px;
+			padding: 20px;
+			border: 10px solid red;
+			background-color: skyblue;
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<input id="minus" type="button" value="-">
+	<input id="plus" type="button" value="+">
+	<input id="toyellow" type="button" value="黄">
+	<input id="toblue" type="button" value="蓝">
+	<div id="p1">
+		肩负使命的崇高性、政治体制的特殊性、代表最广大人民利益的根本性、在世界政治舞台的重要性，决定了从严治党无论对中国还是世界，都是共产党人必须牢牢把握的核心命题。党的十八大以后，习近平总书记铁肩担当从严治党历史使命，以筑牢“ 使命工程、根基工程、中枢工程、永续工程”为战略基点，全面谱写了推进“党的建设新的伟大工程”宏伟篇章肩负使命的崇高性、政治体制的特殊性、代表最广大人民利益的根本性、在世界政治舞台的重要性，决定了从严治党无论对中国还是世界，都是共产党人必须牢牢把握的核心命题。党的十八大以后，习近平总书记铁肩担当从严治党历史使命，以筑牢“ 使命工程、根基工程、中枢工程、永续工程”为战略基点，全面谱写了推进“党的建设新的伟大工程”宏伟篇章
+	</div>
+
+	<script>
+		var minus=document.getElementById("minus");
+		var plus=document.getElementById("plus");
+		var toyellow=document.getElementById("toyellow");
+		var toblue=document.getElementById("toblue");
+		var oP=document.getElementById("p1");
+
+		var num=16;
+
+		minus.onclick=function(){
+			if(num>12){
+				num--;
+				oP.style.fontSize=num+"px";
+			}
+		}
+
+		plus.onclick=function(){
+			if(num<25){
+				num++;
+				oP.style.fontSize=num+"px";
+			}
+		}
+		toyellow.onclick=function(){
+			oP.className="toyellow";
+		}
+		toblue.onclick=function(){
+			oP.className="toblue";
+		}
+	</script>
+</body>
+</html>

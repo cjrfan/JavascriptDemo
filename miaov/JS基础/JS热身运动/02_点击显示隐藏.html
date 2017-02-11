@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 300px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<input id="btn1" type="button" value="显示">
+	<input id="btn2" type="button" value="隐藏">
+	<strong id="strong1">点我显示</strong>
+	<div id="div1"></div>
+	<script>
+		var oBtn1=document.getElementById("btn1");
+		var oBtn2=document.getElementById("btn2");
+		var oStrong1=document.getElementById("strong1");
+		var oDiv1=document.getElementById("div1");
+
+		function show(){
+			oDiv1.style.display="block";
+			oDiv1.style.background="yellow";
+		}
+
+		oBtn1.onclick=show;
+		oStrong1.onclick=show;
+		
+		oBtn2.onclick=function(){
+			oDiv1.style.display="none";
+			oDiv1.style.background="red";
+		}
+		
+	</script>
+</body>
+</html>

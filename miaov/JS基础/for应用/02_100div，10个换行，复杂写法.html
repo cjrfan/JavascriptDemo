@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100div，10个换行，复杂写法</title>
+	<style>
+		div{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			color: white;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			font-family: "SimHei";
+			line-height: 50px;
+		}
+	</style>
+	<script src="myJS.js"></script>
+</head>
+<body>
+	<script>
+		var aDivs=document.getElementsByTagName("div");
+		
+		var count = 1;
+		for (var i = 1; i <= 10; i++) {
+			for (var j = 1; j <= 10; j++) {
+				document.write("<div>"+(count++)+"</div>");
+			}
+		}
+		var len = aDivs.length;
+		var j=0;
+		for (var i = 0; i < len; i++) {
+	
+			if (Math.ceil((i+1)/10)==1) {
+				aDivs[i].style.left = 10+60*i+'px';
+				aDivs[i].style.top = 10+60*0+'px';
+			}
+			else if(Math.ceil((i+1)/10)==2){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*1+'px';
+			}
+			else if(Math.ceil((i+1)/10)==3){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*2+'px';
+			}
+			else if(Math.ceil((i+1)/10)==4){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*3+'px';
+			}
+			else if(Math.ceil((i+1)/10)==5){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*4+'px';
+			}
+			else if(Math.ceil((i+1)/10)==6){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*5+'px';
+			}
+			else if(Math.ceil((i+1)/10)==7){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*6+'px';
+			}
+			else if(Math.ceil((i+1)/10)==8){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*7+'px';
+			}
+			else if(Math.ceil((i+1)/10)==9){
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*8+'px';
+			}
+			else{
+				aDivs[i].style.left = 10+60*(i%10)+'px';
+				aDivs[i].style.top = 10+60*9+'px';
+			}
+		}
+	</script>
+</body>
+</html>

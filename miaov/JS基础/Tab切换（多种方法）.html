@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style>
+		#main{
+			width: 300px;
+			height: 200px;
+			outline: 1px solid black;
+			font-family: "SimHei";
+		}
+		#nav{
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			outline: 1px dashed black;
+		}
+		#nav span{
+			float: left;
+			width: 33.33%;
+			height: 100%;
+			line-height: 30px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#con{
+			width: 100%;
+			height: 170px;
+			background-color: #eee;
+		}
+		#con div{
+			width: 100%;
+			text-align: center;
+			line-height: 170px;
+			display: none;
+		}
+		#nav .active{
+			background-color: #ccc;
+			color: white;
+		}
+		#con .show{
+			display: block;
+			background-color: #ccc;
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="nav">
+			<span class="active">Tab1</span>
+			<span>Tab2</span>
+			<span>Tab3</span>
+		</div>
+		<div id="con">
+			<div class="show">Content111</div>
+			<div>Content22222</div>
+			<div>Content3333333</div>
+		</div>
+	</div>
+
+	<script>
+		var oNav = document.getElementById("nav");
+		var aSpan = oNav.getElementsByTagName("span");
+
+		var oCon = document.getElementById("con");
+		var aDiv = oCon.getElementsByTagName("div");
+
+		// 第一种方法：
+		/*for (var i = 0; i < aSpan.length; i++) {
+			aSpan[i].index = i; 
+			aSpan[i].onclick = function(){
+				for (var j = 0; j < aSpan.length; j++) {
+					aSpan[j].className = "";
+					aDiv[j].className = "";
+				}
+				this.className = "active";
+				aDiv[this.index].className = "show";
+			}
+		}*/
+
+
+
+		// 第二种方法：
+		/*for (var i = 0; i < aSpan.length; i++) {
+			aSpan[i].onclick = function(){
+				for (var j = 0; j < aSpan.length; j++) {
+					if (this==aSpan[j]) {
+						aSpan[j].className = "active";
+						aDiv[j].className = "show";
+					}else{
+						aSpan[j].className = "";
+						aDiv[j].className = "";
+					}
+				}
+			}
+		}*/
+
+
+
+		// 第三种方法：
+		/*for (var i = 0; i < aSpan.length; i++) {
+			function outer(i){
+				function inner(){
+					for (var j = 0; j < aSpan.length; j++) {
+						aSpan[j].className = "";
+						aDiv[j].className = "";
+					}
+					aSpan[i].className = "active";
+					aDiv[i].className = "show";
+				}
+				return inner;
+			}
+			aSpan[i].onclick = outer(i);
+		}*/
+
+
+
+
+		// 第四种方法：
+		/*for (var i = 0; i < aSpan.length; i++) {
+			aSpan[i].onclick = (function(index){
+				function inner(){
+					for (var j = 0; j < aSpan.length; j++) {
+						aSpan[j].className = "";
+						aDiv[j].className = "";
+					}
+					aSpan[index].className = "active";
+					aDiv[index].className = "show";
+				}
+				return inner;
+			})(i);
+		}*/
+
+
+
+
+		// 第五种方法：
+		/*for (var i = 0; i < aSpan.length; i++) {
+			aSpan[i].onclick = (function(index){
+				return function(){
+					for (var j = 0; j < aSpan.length; j++) {
+						aSpan[j].className = "";
+						aDiv[j].className = "";
+					}
+					aSpan[index].className = "active";
+					aDiv[index].className = "show";
+				}
+			})(i);
+		}*/
+
+
+
+
+		// 
+		for (var i = 0; i < aSpan.length; i++) {
+
+			aSpan[i].onclick = function(){
+				// callee 表示当前正在执行的函数
+				// console.log(arguments.callee.index);
+				// console.log(arguments.callee);
+				var index = arguments.callee.index;
+				console.log('index',index);
+				for (var j = 0; j < aSpan.length; j++) {
+						aSpan[j].className = "";
+						aDiv[j].className = "";
+					}
+				aSpan[index].className = "active";
+				aDiv[index].className = "show";
+			};
+			aSpan[i].onclick.index = i;
+		}
+	</script>
+</body>
+</html>

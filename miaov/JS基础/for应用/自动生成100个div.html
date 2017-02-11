@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#divs div{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			color: white;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			font-family: "SimHei";
+			line-height: 50px;
+		}
+	</style>
+	<script src="myJS.js"></script>
+</head>
+<body>
+	<input id="btn1" type="button" value="按钮">
+	<p id="divs"></p>
+	<script>
+		var oBtn1 = getId("btn1");
+		var oDiv1 = getId("divs");
+		var str='';
+		var arr = ['red','orange'/*,'yellow','green','cyan','blue','purple'*/];
+		oBtn1.onclick = function(){
+			for (var i = 1; i <= 100; i++) {
+				str+="<div>"+i+"</div>";
+			}
+			oDiv1.innerHTML= str;
+			var aDiv = document.getElementsByTagName("div");
+
+			for (var j = 0,k = 0; j < aDiv.length; j++) {
+				aDiv[j].style.left = 10+60*(j%10)+'px';
+				if (j%10==0) {
+					k++;
+				}
+				var n = j%arr.length;
+				aDiv[j].style.backgroundColor = arr[n];
+				aDiv[j].style.top = 40+60*(k-1)+'px';
+			}
+		}
+	</script>
+</body>
+</html>
